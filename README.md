@@ -7,7 +7,7 @@ Deploy a high-availability new application using AWS CloudFormation infrastructu
 ### File Structure
 
 1. `create.sh` 
-    * used to deploy server into Public Subnets,  helps with troubleshooting.
+    * use ssh key to deploy server into Public Subnets,  helps with troubleshooting.
 
 2. `network-infrastructure.yml` `network-parameters.json`
     * contains network resources to be deployed
