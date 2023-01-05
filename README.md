@@ -42,35 +42,34 @@ Configure security groups:
  - allow all public traffic `(0.0.0.0/0)` on `port:80` inbound
  - outbound default `HTTP port:80` to reach internal servers.  
 
-2. Deploy networks Infrastructure:
+Deploy `network` Infrastructure:
 
-- Run: the shell script `create.sh` using EC2 instance public DNS
- * create network infrastructure cloudformation stacks:
-- Run:`./create.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
+ - Run: the shell script `create.sh` using EC2 instance public DNS
+  * create network infrastructure cloudformation stacks:
+ - Run:`./create.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
 
-3. Deploying servers Infrastructure:
+Deploying `servers` Infrastructure:
 
-- Run: the shell script `create.sh` using EC2 instance public DNS
- * create servers infrastructure cloudformation stacks:
-- Run: `./create.sh serverinfrastructure server-infrastructure.yml server-parameters.json`
+ - Run: the shell script `create.sh` using EC2 instance public DNS
+  * create servers infrastructure cloudformation stacks:
+ - Run: `./create.sh serverinfrastructure server-infrastructure.yml server-parameters.json`
 
-4. Check cloud formation stack creation status:
+Check cloud formation stack creation status:
 
-- Run the shell script `create.sh` using EC2 instance public DNS
- * Run: `aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE`
+ - Run the shell script `create.sh` using EC2 instance public DNS
+  * Run: `aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE`
 
-5. Update Infrastructure Cloud Formation stack:
+Update Infrastructure Cloud Formation stack:
 
-- Run the shell script `update.sh` using EC2 instance public DNS
- * update network infrastructure cloudformation stacks:
-- Run: `./update.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
+ - Run the shell script `update.sh` using EC2 instance public DNS
+  * update network infrastructure cloudformation stacks:
+ - Run: `./update.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
 
-6. Update Infrastructure Cloud Formation stack:
+Update Infrastructure Cloud Formation stack:
 
-- Run the shell script `update.sh` using EC2 instance public DNS
- * update server infrastructure cloudformation stacks:
-- Run: `./update.sh serverinfrastructure server-infrastructure.yml server-parameters.json
-`
+ - Run the shell script `update.sh` using EC2 instance public DNS
+  * update server infrastructure cloudformation stacks:
+ - Run: `./update.sh serverinfrastructure server-infrastructure.yml server-parameters.json`
 
 ### Output
 Access Application with LoadBalancer public DNS url: **[Udagram](http://serve-WebAp-161GK7Q8AC2BX-657455822.us-east-1.elb.amazonaws.com)**.
