@@ -21,51 +21,57 @@
     * stack updates
 
 - Bastion hosts _(Optional)_. EC2 instances for troubleshooting of application web servers.
-* TODO
+ * TODO
 
 ## Infrastructure Deployment
 
 ### Instructions
 
-1.Application Configurations:
+### Application Configurations:
 
-* Use AWS console or AWS ClI to create:
-- an IAM profile and AMI Role
-- security Key pair for your Instance.
-- an EC2 Instance to connect its public DNS to your keypair 
-- s3 bucket - to downloading the application archive
+Use AWS console or AWS ClI to create:
 
-* configure security groups:
-- inbound port open at `Http Port:80` to use it with Load balancer and Load balancer health checks
-- allow all public traffic `(0.0.0.0/0)` on `port:80` inbound
-- outbound default `HTTP port:80` to reach internal servers.  
+ - an IAM profile and AMI Role
+ - security Key pair for your Instance.
+ - an EC2 Instance to connect its public DNS to your keypair 
+ - s3 bucket - to downloading the application archive
 
-2.Deploy networks Infrastructure:
+Configure security groups:
+
+ - inbound port open at `Http Port:80` to use it with Load balancer and Load balancer health checks
+ - allow all public traffic `(0.0.0.0/0)` on `port:80` inbound
+ - outbound default `HTTP port:80` to reach internal servers.  
+
+2. Deploy networks Infrastructure:
+
 - Run: the shell script `create.sh` using EC2 instance public DNS
-* create network infrastructure cloudformation stacks:
+ * create network infrastructure cloudformation stacks:
 - Run:`./create.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
 
-3.Deploying servers Infrastructure:
+3. Deploying servers Infrastructure:
+
 - Run: the shell script `create.sh` using EC2 instance public DNS
-* create servers infrastructure cloudformation stacks:
+ * create servers infrastructure cloudformation stacks:
 - Run: `./create.sh serverinfrastructure server-infrastructure.yml server-parameters.json`
 
 4. Check cloud formation stack creation status:
+
 - Run the shell script `create.sh` using EC2 instance public DNS
-- Run: `aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE`
+ * Run: `aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE`
 
 5. Update Infrastructure Cloud Formation stack:
+
 - Run the shell script `update.sh` using EC2 instance public DNS
-* update network infrastructure cloudformation stacks:
+ * update network infrastructure cloudformation stacks:
 - Run: `./update.sh networkinfrastructure network-infrastructure.yml network-parameters.json`
 
 6. Update Infrastructure Cloud Formation stack:
+
 - Run the shell script `update.sh` using EC2 instance public DNS
-* update server infrastructure cloudformation stacks:
+ * update server infrastructure cloudformation stacks:
 - Run: `./update.sh serverinfrastructure server-infrastructure.yml server-parameters.json
 `
 
-
 ### Output
-Access Application via LoadBalancer public DNS url: **[Udagram](http://serve-WebAp-161GK7Q8AC2BX-657455822.us-east-1.elb.amazonaws.com)**.
+Access Application with LoadBalancer public DNS url: **[Udagram](http://serve-WebAp-161GK7Q8AC2BX-657455822.us-east-1.elb.amazonaws.com)**.
 
